@@ -1,0 +1,34 @@
+<!-- <h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p> -->
+
+<center><h1>J. Yu</h1><center>
+	
+<p>Exquisitely Human. My first name is <%= @Home.name %></p>
+
+<p><a href="#">say HI! <span class="glyphicon glyphicon-envelope"></span></a></p>
+
+<p>Thanks for visiting my page. Today is <%= Date.today =%>. </p>
+
+<% t = Time.new %>
+<p> it is <%= t.strftime("%I:%M%p") %>. </p> 
+<p>My birthday is <%= @Home.birthdate %></p> 
+
+<!-- 
+<button onclick="myFunction()">Is it your birthday?</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var greeting;
+    var day_check = new Date().getDate();
+    var month_check = new Date().getMonth(); 
+    if (day_check == 4 && month_check == 4) {
+        greeting = "Happy Birthday!!! ";
+    } else {
+        greeting = "NOOO!";
+    }
+document.getElementById("demo").innerHTML = greeting;
+}
+</script> 
+-->
