@@ -12,14 +12,16 @@
       </div>
 
       <div class="panel-body">
-        <p><strong>by <%= blog_post.author %></strong><span class="posted-at"> posted at: <%= blog_post.updated_at.strftime("%A, %B, %e, %Y at %I:%M") %></p>
+        <p>by <strong><%= link_to blog_post.user.username, user_posts_path(id:blog_post.user.id) %></strong><span class="posted-at"> posted at: <%= blog_post.updated_at.strftime("%A, %B, %e, %Y at %I:%M") %></p>
         <p><%= blog_post.blog_entry[0,250] %>...<%= link_to 'Read More', blog_post %> </p> 
       </div> 
-
-      <div class="panel-footer">
-        <%= link_to 'Edit', edit_blog_post_path(blog_post), class: "btn btn-warning" %> 
-        <%= link_to 'Destroy', blog_post, method: :delete, data: {confirm: 'Are you VERY sure?' }, class: "btn btn-danger" %> 
-      </div>
+      
+      <% if current_user.id == blog_post.user.id %> 
+        <div class="panel-footer">
+          <%= link_to 'Edit', edit_blog_post_path(blog_post), class: "btn btn-warning" %> 
+          <%= link_to 'Destroy', blog_post, method: :delete, data: {confirm: 'Are you VERY sure?' }, class: "btn btn-danger" %> 
+        </div>
+      <% end %> 
 
     </div>
   </div> 
